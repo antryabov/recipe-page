@@ -192,6 +192,7 @@ main {
 @media (width <= 550px) {
   .recipe-article {
     padding: 0;
+    margin: 0;
 
     .recipe-article__body {
       padding-block: var(--padding-b);
