@@ -1,0 +1,201 @@
+:root {
+  --white-color: hsl(0, 0%, 100%);
+
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+
+  --brown-800: hsl(14, 45%, 36%);
+
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+
+  --base-font-family: 'Outfit', sans-serif;
+  --title-font-family: 'Young Serif', sans-serif;
+  --base-font-size: 1rem;
+
+  --padding-b: 2.5rem;
+  --padding-i: 2rem;
+
+  --border-radius-img: 0.75rem;
+  --border-radius-add-info: 0.75rem;
+  --border-radius-article: 1.5rem;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/Outfit-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/Outfit-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/Outfit-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Young Serif';
+  src: url('./assets/fonts/YoungSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--stone-600);
+  background-color: var(--stone-100);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 100%;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.recipe-article {
+  margin-block: 8rem;
+  width: clamp(23.4375rem, 15.5rem + 33.9vw, 46rem);
+  padding: var(--padding-b);
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-article);
+
+  .recipe-article__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .recipe-article__body {
+    padding-block-start: 2.5rem;
+
+    .recipe-article__title {
+      padding-block-end: 1.5rem;
+      font-family: var(--title-font-family);
+      font-size: clamp(2.25rem, 2.162rem + 0.38vw, 2.5rem);
+      color: var(--stone-900);
+    }
+
+    .recipe-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .recipe-text__list {
+        padding-inline-start: 1.5rem;
+
+        .recipe-text__item {
+          padding-inline-start: 1rem;
+
+          .recipe-text__item-bold {
+            font-weight: 600;
+          }
+        }
+      }
+
+      .additional-info {
+        padding-block: 1.5rem;
+        padding-inline: 1.5rem;
+        width: 100%;
+        background-color: var(--rose-50);
+        border-radius: var(--border-radius-add-info);
+
+        .additional-info__title {
+          padding-block-end: 1rem;
+        }
+      }
+
+      .recipe-text__subtitle {
+        font-family: var(--title-font-family);
+        font-size: 1.75rem;
+      }
+
+      .recipe-text__separator {
+        width: 100%;
+        height: 0.0625rem;
+        background-color: var(--stone-150);
+      }
+
+      .ordered-list.bold {
+        font-weight: 700;
+
+        .recipe-text__item-normal {
+          font-weight: normal;
+        }
+      }
+    }
+
+    .nutrition-table {
+      .nutrition-table__row {
+        width: 100%;
+        padding-inline-start: 2rem;
+        padding-block-end: 0.75rem;
+        display: flex;
+        gap: 1rem;
+
+        dt {
+          width: clamp(7.2188rem, 3.422rem + 16.2vw, 18rem);
+        }
+
+        dd {
+          font-weight: 700;
+        }
+      }
+
+      .nutrition-table__row:not(:first-child) {
+        padding-block: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (width <= 550px) {
+  .recipe-article {
+    padding: 0;
+
+    .recipe-article__body {
+      padding-block: var(--padding-b);
+      padding-inline: var(--padding-i);
+    }
+  }
+}
