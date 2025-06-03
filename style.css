@@ -123,6 +123,9 @@ main {
 
       .recipe-text__list {
         padding-inline-start: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
 
         .recipe-text__item {
           padding-inline-start: 1rem;
